@@ -8,31 +8,50 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo-placeholder">Kowry</div>
-        </header>
+    <div class="overlay">
+        <div class="hero-card fade-in">
+            <!-- Abstract SVG Logo -->
+            <div class="logo">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#02a1a6"/>
+                            <stop offset="100%" stop-color="#f6b93b"/>
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#grad)" d="M100 20C65 20 40 50 40 90s25 70 60 70 60-30 60-70S135 20 100 20z"/>
+                    <rect x="70" y="70" width="60" height="40" rx="8" fill="url(#grad)" opacity="0.8"/>
+                </svg>
+            </div>
 
-        <main>
-            <h1 class="fade-in">One Wallet. Every Payment. Everywhere.</h1>
-            <p class="fade-in delay-1">
-                From Lagos to London — pay or get paid in crypto, bank, card, USSD, or more.  
-                All in one fast, unified wallet. Coming soon.
-            </p>
+            <!-- Hero Text -->
+            <h1>One Wallet. More Ways. Everywhere.</h1>
+            <p>From Africa to Europe — send, receive, and move value without limits.</p>
 
-            <form class="fade-in delay-2" action="#" method="POST">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Notify Me</button>
-            </form>
-        </main>
-
-        <footer class="fade-in delay-3">
-            <p>© <span id="year"></span> Kowry. All rights reserved.</p>
-        </footer>
+            <!-- Mystery CTA -->
+            <div class="cta">
+                <button id="notifyBtn">Get Notified</button>
+                <form id="notifyForm" class="hidden" action="#" method="POST">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Join Waitlist</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <footer class="fade-in delay-3">
+        <p>© <span id="year"></span> Kowry. All rights reserved.</p>
+    </footer>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+        const notifyBtn = document.getElementById('notifyBtn');
+        const notifyForm = document.getElementById('notifyForm');
+        notifyBtn.addEventListener('click', () => {
+            notifyBtn.classList.add('hidden');
+            notifyForm.classList.remove('hidden');
+            notifyForm.classList.add('fade-in');
+        });
     </script>
 </body>
 </html>
