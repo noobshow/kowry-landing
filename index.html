@@ -8,6 +8,10 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <div class="background">
+        <div class="particles"></div>
+    </div>
+
     <div class="overlay">
         <div class="hero-card fade-in">
             <!-- Abstract SVG Logo -->
@@ -19,8 +23,10 @@
                             <stop offset="100%" stop-color="#f6b93b"/>
                         </linearGradient>
                     </defs>
+                    <!-- Cowry shell -->
                     <path fill="url(#grad)" d="M100 20C65 20 40 50 40 90s25 70 60 70 60-30 60-70S135 20 100 20z"/>
-                    <rect x="70" y="70" width="60" height="40" rx="8" fill="url(#grad)" opacity="0.8"/>
+                    <!-- Wallet stripe -->
+                    <rect x="70" y="70" width="60" height="40" rx="8" fill="url(#grad)" opacity="0.85"/>
                 </svg>
             </div>
 
@@ -28,10 +34,10 @@
             <h1>One Wallet. More Ways. Everywhere.</h1>
             <p>From Africa to Europe — send, receive, and move value without limits.</p>
 
-            <!-- Mystery CTA -->
-            <div class="cta">
+            <!-- CTA Area -->
+            <div class="cta" id="ctaArea">
                 <button id="notifyBtn">Get Notified</button>
-                <form id="notifyForm" class="hidden" action="#" method="POST">
+                <form id="notifyForm" action="#" method="POST">
                     <input type="email" placeholder="Your email" required>
                     <button type="submit">Join Waitlist</button>
                 </form>
@@ -45,12 +51,19 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+        
         const notifyBtn = document.getElementById('notifyBtn');
         const notifyForm = document.getElementById('notifyForm');
+
+        notifyForm.style.display = 'none'; // start hidden
+
         notifyBtn.addEventListener('click', () => {
-            notifyBtn.classList.add('hidden');
-            notifyForm.classList.remove('hidden');
-            notifyForm.classList.add('fade-in');
+            notifyBtn.style.opacity = '0';
+            setTimeout(() => {
+                notifyBtn.style.display = 'none';
+                notifyForm.style.display = 'flex';
+                notifyForm.classList.add('fade-in');
+            }, 300);
         });
     </script>
 </body>
