@@ -1,0 +1,110 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+    --primary: #027b7f; /* Deep teal */
+    --accent: #f6b93b; /* Warm gold */
+    --bg-dark: #011f21;
+    --text-light: #f0f0f0;
+    --text-muted: #b8c2c2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 1rem;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+}
+
+.logo-placeholder {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+input[type="email"] {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    width: 65%;
+    max-width: 300px;
+}
+
+button {
+    background: var(--accent);
+    color: var(--bg-dark);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #e09e27;
+}
+
+/* Fade-in animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+.delay-1 { animation-delay: 0.4s; }
+.delay-2 { animation-delay: 0.8s; }
+.delay-3 { animation-delay: 1.2s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
