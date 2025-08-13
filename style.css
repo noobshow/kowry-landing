@@ -17,42 +17,12 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: var(--bg1);
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
     color: var(--text-light);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-x: hidden;
-}
-
-/* Floating particle background */
-.background {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -2;
-    background: linear-gradient(135deg, var(--bg1), var(--bg2));
-    overflow: hidden;
-}
-
-.particles::before, .particles::after {
-    content: '';
-    position: absolute;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: moveParticles 60s linear infinite;
-}
-
-.particles::after {
-    animation-delay: -30s;
-}
-
-@keyframes moveParticles {
-    from { transform: translate(0, 0); }
-    to { transform: translate(-50px, -50px); }
 }
 
 .overlay {
@@ -64,24 +34,23 @@ body {
 }
 
 .hero-card {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 2.5rem;
     max-width: 500px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 0 35px rgba(0,0,0,0.4);
-    position: relative;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
 }
 
 .logo {
-    width: 90px;
+    width: 80px;
     margin: 0 auto 1.5rem;
 }
 
 h1 {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     font-weight: 800;
     background: linear-gradient(90deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
@@ -96,12 +65,6 @@ p {
     line-height: 1.6;
 }
 
-.cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .cta button, 
 .cta input[type="email"] {
     padding: 0.8rem 1.2rem;
@@ -112,24 +75,23 @@ p {
     outline: none;
 }
 
-#notifyBtn {
+.cta button {
     background: var(--accent);
     color: var(--bg1);
     cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.2s ease, background 0.3s ease;
 }
 
-#notifyBtn:hover {
+.cta button:hover {
     transform: translateY(-2px);
     background: #e09e27;
 }
 
-#notifyForm {
+.cta form {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
 }
 
 .cta input[type="email"] {
@@ -137,15 +99,8 @@ p {
     min-width: 200px;
 }
 
-.cta button[type="submit"] {
-    background: var(--primary);
-    color: var(--text-light);
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.cta button[type="submit"]:hover {
-    background: #02888c;
+.hidden {
+    display: none;
 }
 
 footer {
