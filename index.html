@@ -1,70 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kowry — Coming Soon</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kowry — Coming Soon</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="background">
-        <div class="particles"></div>
+  <div class="background"><div class="particles"></div></div>
+
+  <div class="overlay">
+    <div class="hero-card fade-in">
+      <!-- Logo Placeholder -->
+      <div class="logo">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0a2540"/>
+              <stop offset="100%" stop-color="#4f9ef8"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#grad)" d="M100 20C65 20 40 50 40 90s25 70 60 70 60-30 60-70S135 20 100 20z"/>
+          <rect x="70" y="70" width="60" height="40" rx="8" fill="url(#grad)" opacity="0.85"/>
+        </svg>
+      </div>
+
+      <h1>One Wallet. More Ways. Everywhere.</h1>
+      <p>From Africa to Europe — send, receive, and move value without limits.</p>
+
+      <div class="cta">
+        <button id="notifyBtn">Get Notified</button>
+        <form id="notifyForm" action="https://formspree.io/f/yourformid" method="POST">
+          <input type="email" name="email" placeholder="Your email" required />
+          <button type="submit">Join Waitlist</button>
+        </form>
+      </div>
     </div>
+  </div>
 
-    <div class="overlay">
-        <div class="hero-card fade-in">
-            <!-- Abstract SVG Logo -->
-            <div class="logo">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#02a1a6"/>
-                            <stop offset="100%" stop-color="#f6b93b"/>
-                        </linearGradient>
-                    </defs>
-                    <!-- Cowry shell -->
-                    <path fill="url(#grad)" d="M100 20C65 20 40 50 40 90s25 70 60 70 60-30 60-70S135 20 100 20z"/>
-                    <!-- Wallet stripe -->
-                    <rect x="70" y="70" width="60" height="40" rx="8" fill="url(#grad)" opacity="0.85"/>
-                </svg>
-            </div>
+  <footer class="fade-in delay-3">
+    <p>© <span id="year"></span> Kowry. All rights reserved.</p>
+  </footer>
 
-            <!-- Hero Text -->
-            <h1>One Wallet. More Ways. Everywhere.</h1>
-            <p>From Africa to Europe — send, receive, and move value without limits.</p>
-
-            <!-- CTA Area -->
-            <div class="cta" id="ctaArea">
-                <button id="notifyBtn">Get Notified</button>
-                <form id="notifyForm" action="#" method="POST">
-                    <input type="email" placeholder="Your email" required>
-                    <button type="submit">Join Waitlist</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <footer class="fade-in delay-3">
-        <p>© <span id="year"></span> Kowry. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        const notifyBtn = document.getElementById('notifyBtn');
-        const notifyForm = document.getElementById('notifyForm');
-
-        notifyForm.style.display = 'none'; // start hidden
-
-        notifyBtn.addEventListener('click', () => {
-            notifyBtn.style.opacity = '0';
-            setTimeout(() => {
-                notifyBtn.style.display = 'none';
-                notifyForm.style.display = 'flex';
-                notifyForm.classList.add('fade-in');
-            }, 300);
-        });
-    </script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const btn = document.getElementById("notifyBtn");
+    const form = document.getElementById("notifyForm");
+    form.style.display = "none";
+    btn.addEventListener("click", () => {
+      btn.style.opacity = "0";
+      setTimeout(() => {
+        btn.style.display = "none";
+        form.style.display = "flex";
+        form.classList.add("fade-in");
+      }, 300);
+    });
+  </script>
 </body>
 </html>
