@@ -1,70 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kowry — Coming Soon</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Wallet. More Payments. Everywhere.</title>
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8faff;
+        color: #1a1a1a;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin: 0.5rem 0;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: #444;
+        max-width: 500px;
+        text-align: center;
+    }
+
+    /* Stripe-like Blue */
+    :root {
+        --stripe-blue: #635bff;
+    }
+
+    /* Icon Animation */
+    .icon {
+        width: 80px;
+        height: 80px;
+        fill: var(--stripe-blue);
+        animation: moveUp 2s ease-out forwards;
+    }
+
+    @keyframes moveUp {
+        0% {
+            transform: translateY(120px) rotate(0deg);
+            opacity: 0;
+        }
+        40% {
+            transform: translateY(0px) rotate(180deg);
+            opacity: 1;
+        }
+        70% {
+            transform: translateY(0px) rotate(540deg);
+        }
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+    }
+
+    /* Notify Form */
+    .notify {
+        margin-top: 2rem;
+        background: white;
+        border-radius: 50px;
+        display: flex;
+        padding: 5px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .notify:hover {
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .notify input {
+        border: none;
+        outline: none;
+        padding: 0.8rem 1rem;
+        flex: 1;
+        font-size: 1rem;
+        border-radius: 50px 0 0 50px;
+    }
+
+    .notify button {
+        border: none;
+        background: var(--stripe-blue);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .notify button:hover {
+        background: #5146d8;
+    }
+</style>
 </head>
 <body>
-    <div class="background">
-        <div class="particles"></div>
-    </div>
 
-    <div class="overlay">
-        <div class="hero-card fade-in">
-            <!-- Abstract SVG Logo -->
-            <div class="logo">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#02a1a6"/>
-                            <stop offset="100%" stop-color="#f6b93b"/>
-                        </linearGradient>
-                    </defs>
-                    <!-- Cowry shell -->
-                    <path fill="url(#grad)" d="M100 20C65 20 40 50 40 90s25 70 60 70 60-30 60-70S135 20 100 20z"/>
-                    <!-- Wallet stripe -->
-                    <rect x="70" y="70" width="60" height="40" rx="8" fill="url(#grad)" opacity="0.85"/>
-                </svg>
-            </div>
+<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+</svg>
 
-            <!-- Hero Text -->
-            <h1>One Wallet. More Ways. Everywhere.</h1>
-            <p>From Africa to Europe — send, receive, and move value without limits.</p>
+<h1>One Wallet. More Payments. Everywhere.</h1>
+<p>Pay or get paid in more ways – securely, instantly, globally.</p>
 
-            <!-- CTA Area -->
-            <div class="cta" id="ctaArea">
-                <button id="notifyBtn">Get Notified</button>
-                <form id="notifyForm" action="#" method="POST">
-                    <input type="email" placeholder="Your email" required>
-                    <button type="submit">Join Waitlist</button>
-                </form>
-            </div>
-        </div>
-    </div>
+<div class="notify">
+    <input type="email" placeholder="Enter your email for early access">
+    <button>Get Notified</button>
+</div>
 
-    <footer class="fade-in delay-3">
-        <p>© <span id="year"></span> Kowry. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        const notifyBtn = document.getElementById('notifyBtn');
-        const notifyForm = document.getElementById('notifyForm');
-
-        notifyForm.style.display = 'none'; // start hidden
-
-        notifyBtn.addEventListener('click', () => {
-            notifyBtn.style.opacity = '0';
-            setTimeout(() => {
-                notifyBtn.style.display = 'none';
-                notifyForm.style.display = 'flex';
-                notifyForm.classList.add('fade-in');
-            }, 300);
-        });
-    </script>
 </body>
 </html>
