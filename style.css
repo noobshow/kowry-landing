@@ -1,10 +1,10 @@
-/* Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
 :root {
-    --primary: #027b7f; /* Deep teal */
-    --accent: #f6b93b; /* Warm gold */
-    --bg-dark: #011f21;
+    --primary: #02a1a6;
+    --accent: #f6b93b;
+    --bg1: #011f21;
+    --bg2: #013437;
     --text-light: #f0f0f0;
     --text-muted: #b8c2c2;
 }
@@ -17,94 +17,113 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: var(--bg-dark);
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
     color: var(--text-light);
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.overlay {
+    flex: 1;
+    display: flex;
     align-items: center;
-    height: 100vh;
-    text-align: center;
+    justify-content: center;
     padding: 1rem;
 }
 
-.container {
-    max-width: 600px;
+.hero-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 500px;
     width: 100%;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
 }
 
-.logo-placeholder {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--primary);
-    letter-spacing: 2px;
-    margin-bottom: 2rem;
+.logo {
+    width: 80px;
+    margin: 0 auto 1.5rem;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 800;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
-    color: var(--accent);
 }
 
 p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
     color: var(--text-muted);
     margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
-form {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-input[type="email"] {
-    padding: 0.8rem;
+.cta button, 
+.cta input[type="email"] {
+    padding: 0.8rem 1.2rem;
     border: none;
     border-radius: 25px;
-    outline: none;
-    width: 65%;
-    max-width: 300px;
-}
-
-button {
-    background: var(--accent);
-    color: var(--bg-dark);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
+    font-size: 1rem;
     font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    outline: none;
 }
 
-button:hover {
+.cta button {
+    background: var(--accent);
+    color: var(--bg1);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.cta button:hover {
+    transform: translateY(-2px);
     background: #e09e27;
 }
 
-/* Fade-in animations */
+.cta form {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cta input[type="email"] {
+    flex: 1 1 60%;
+    min-width: 200px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Animations */
 .fade-in {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(20px);
     animation: fadeInUp 0.8s forwards;
 }
 
-.delay-1 { animation-delay: 0.4s; }
-.delay-2 { animation-delay: 0.8s; }
-.delay-3 { animation-delay: 1.2s; }
+.delay-3 {
+    animation-delay: 1.2s;
+}
 
 @keyframes fadeInUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-footer {
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    color: var(--text-muted);
 }
