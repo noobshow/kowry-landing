@@ -4,19 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kowry — One Wallet. More Ways. Everywhere.</title>
-  <meta name="description" content="Kowry — A new kind of wallet. From Africa to Europe — move value without limits. Join the waitlist."/>
+  <meta name="description" content="Kowry — A new kind of wallet. From Lagos to London — move value without limits. Join the waitlist."/>
   <meta property="og:title" content="Kowry — One Wallet. More Ways. Everywhere."/>
-  <meta property="og:description" content="From Africa to Europe — move value without limits. Join the waitlist."/>
+  <meta property="og:description" content="From Lagos to London — move value without limits. Join the waitlist."/>
   <meta property="og:type" content="website"/>
   <meta name="theme-color" content="#03045e"/>
   <style>
-    /* ========================
-       Kowry — Single-file teaser
-       Optimized for GitHub Pages + Cloudflare
-       No external assets. ~4KB CSS + inline SVG logo.
-       ======================== */
-
-    /* Color System — Ocean Blue Serenity */
     :root{
       --federal-blue:#03045eff;
       --marian-blue:#023e8aff;
@@ -24,11 +17,10 @@
       --blue-green:#0096c7ff;
       --pacific-cyan:#00b4d8ff;
       --vivid-sky-blue:#48cae4ff;
-      --non-photo-blue:#90e0efff; /* suggested */
+      --non-photo-blue:#90e0efff;
       --non-photo-blue-2:#ade8f4ff;
       --light-cyan:#caf0f8ff;
 
-      /* Brand tokens */
       --bg: var(--federal-blue);
       --bg-2: var(--marian-blue);
       --brand: var(--blue-green);
@@ -37,8 +29,6 @@
       --muted: #c9d8e6;
       --btn-fg: #041018;
     }
-
-    /* System font stack for performance */
     :root { --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
 
     *{box-sizing:border-box}
@@ -55,9 +45,7 @@
     .wrap{ max-width:860px; width:100%; display:grid; gap:28px; text-align:center; }
 
     header{ display:flex; justify-content:center; align-items:center; gap:12px; }
-    .logo{
-      display:inline-flex; align-items:center; gap:12px; filter:drop-shadow(0 6px 24px rgba(0,0,0,.25));
-    }
+    .logo{ display:inline-flex; align-items:center; gap:12px; filter:drop-shadow(0 6px 24px rgba(0,0,0,.25)); }
     .logo svg{ width:38px; height:38px; }
     .wordmark{ font-weight:700; letter-spacing:.6px; font-size:1.25rem; }
 
@@ -67,8 +55,21 @@
     .sub{ color:var(--muted); font-size: clamp(1rem, .6vw + .9rem, 1.2rem); max-width:56ch; margin:0 auto; }
 
     .cta{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:center; }
-    .input{ appearance:none; border:none; outline:none; padding:14px 16px; border-radius:999px; width:min(320px, 80vw); background:#ffffff; color:#0b2633; font-size:16px; }
-    .btn{ border:0; cursor:pointer; font-weight:700; padding:14px 18px; border-radius:999px; background:linear-gradient(90deg, var(--brand) 0%, var(--brand-accent) 100%); color:var(--btn-fg); }
+    .input{
+      appearance:none; border:none; outline:none;
+      padding:14px 16px; border-radius:999px;
+      width:min(320px, 80vw);
+      background:#ffffff; color:#0b2633; font-size:16px;
+      transition: box-shadow .2s ease, border .2s ease;
+    }
+    .input:focus{ box-shadow:0 0 0 3px var(--brand-accent); }
+    .btn{
+      border:0; cursor:pointer; font-weight:700;
+      padding:14px 18px; border-radius:999px;
+      background:linear-gradient(90deg, var(--brand) 0%, var(--brand-accent) 100%);
+      color:var(--btn-fg);
+      transition: filter .2s, transform .1s;
+    }
     .btn:hover{ filter:brightness(1.05); }
     .btn:active{ transform:translateY(1px); }
 
@@ -78,7 +79,6 @@
     a{ color: var(--non-photo-blue-2); text-decoration:none }
     a:hover{ text-decoration:underline }
 
-    /* Motion — subtle, respects prefers-reduced-motion */
     .fade{ opacity:0; transform:translateY(14px); animation:fadeUp .8s .05s forwards; }
     .fade.d1{ animation-delay:.2s }
     .fade.d2{ animation-delay:.4s }
@@ -88,14 +88,18 @@
       .fade{ opacity:1; transform:none; animation:none }
     }
 
-    /* Tiny screens polish */
     @media (max-width:420px){ .wordmark{ display:none } }
+
+    /* Success message */
+    .success{
+      font-size:1rem; font-weight:600; color:var(--non-photo-blue-2);
+      margin-top:12px; animation:fadeUp .6s ease forwards;
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <header class="fade">
-      <!-- Inline SVG placeholder: abstract cowry + wallet fold -->
       <div class="logo" aria-label="Kowry logo placeholder">
         <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
           <defs>
@@ -104,11 +108,8 @@
               <stop offset="1" stop-color="var(--pacific-cyan)"/>
             </linearGradient>
           </defs>
-          <!-- outer shell ellipse -->
           <ellipse cx="32" cy="32" rx="22" ry="28" fill="none" stroke="url(#g)" stroke-width="4"/>
-          <!-- inner seam / unification curve -->
           <path d="M18 36c6-10 22-10 28 0" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
-          <!-- subtle wallet fold notch -->
           <path d="M22 22c6-6 14-6 20 0" fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
         </svg>
         <span class="wordmark">Kowry</span>
@@ -116,16 +117,14 @@
     </header>
 
     <h1 class="headline fade d1">One Wallet. More Ways. Everywhere.</h1>
-    <p class="sub fade d2">From Africa to Europe — move value without limits. Be first to know when Kowry drops.</p>
+    <p class="sub fade d2">From Lagos to London — send, receive and move value without limits.</p>
 
-    <!-- Simple email capture: no backend. 
-         Option A: use mailto (works now). Update the email address below.
-         Option B: later swap action to a service (Formspree, Beehiiv, Mailchimp landing) without changing styles. -->
-    <form class="cta fade d3" method="GET" action="mailto:join@kowry.co" onsubmit="return mailtoSubmit(event)">
-      <input class="input" type="email" name="email" inputmode="email" autocomplete="email" required placeholder="your@email.com" aria-label="Email address" />
+    <form class="cta fade d3" id="waitlist-form">
+      <input class="input" type="email" name="email" required placeholder="your@email.com" aria-label="Email address"/>
       <button class="btn" type="submit">Notify Me</button>
     </form>
     <small class="alt fade d3">We’ll only email you about the launch. No spam.</small>
+    <div id="success" class="success" hidden>🎉 Thanks! You’re on the waitlist.</div>
 
     <footer class="fade d3">
       <div>© <span id="y"></span> Kowry • <a href="mailto:hello@kowry.co">Contact</a></div>
@@ -133,19 +132,25 @@
   </main>
 
   <script>
-    // Year stamp
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // mailto fallback that appends subject/body with the email typed
-    function mailtoSubmit(e){
-      const input = e.target.querySelector('input[type="email"]');
-      const email = encodeURIComponent(input.value.trim());
+    const form = document.getElementById('waitlist-form');
+    const success = document.getElementById('success');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = form.email.value.trim();
+      if (!email) return;
+
+      // Fallback mailto for now
       const subject = encodeURIComponent('Kowry Waitlist');
-      const body = encodeURIComponent('Please add me to the Kowry waitlist. My email: ' + input.value.trim());
-      const href = `mailto:join@kowry.co?subject=${subject}&body=${body}`;
-      window.location.href = href;
-      return false; // prevent default
-    }
+      const body = encodeURIComponent('Please add me to the Kowry waitlist. My email: ' + email);
+      window.location.href = `mailto:join@kowry.co?subject=${subject}&body=${body}`;
+
+      // Inline confirmation
+      form.style.display = 'none';
+      success.hidden = false;
+    });
   </script>
 </body>
 </html>
