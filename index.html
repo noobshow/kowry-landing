@@ -126,7 +126,7 @@
 
     <!-- Mystery CTA first -->
     <div class="reveal fade d3">
-      <button id="revealBtn" class="btn">Notify Me</button>
+      <button id="revealBtn" class="btn">Show Me</button>
     </div>
 
     <!-- Hidden email form -->
@@ -169,6 +169,7 @@
         if (response.ok) {
           status.hidden = false;
           status.textContent = "🎉 Thanks! You’re on the waitlist.";
+          hint.textContent = "You’ll be first in line when we go live.";
           form.reset();
           form.style.display = "none";
           hint.hidden = true;
